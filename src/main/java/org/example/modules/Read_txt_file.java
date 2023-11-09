@@ -13,7 +13,7 @@ public class Read_txt_file {
 
     public void openFile()
    {  try
-      {  input = new Scanner( new File( "Mensagens.txt" ) );
+      {  input = new Scanner( new File( "Messages.txt" ) );
       }  
       catch ( FileNotFoundException fileNotFoundException )
       {  System.err.println( "Error opening file." );

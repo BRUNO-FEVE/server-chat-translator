@@ -14,7 +14,7 @@ public class Create_txt_file
 {  private Formatter output;  
    public void openFile()  
    {  try
-      {  output = new Formatter( "Mensagens.txt" );
+      {  output = new Formatter( "Messages.txt" );
       }  
       catch( SecurityException securityException )
       {  System.err.println( "You do not have write access to this file." );
