@@ -17,7 +17,7 @@ public class ServerChat {
     private final List<ClientSocket> clients = new LinkedList<>();
 
     public void start() throws IOException {
-        InetAddress host = Inet4Address.getLocalHost();
+        InetAddress host = InetAddress.getLocalHost();
         this.ADDRESS = host.getHostAddress();
 
         serverSocket = new ServerSocket(PORT);

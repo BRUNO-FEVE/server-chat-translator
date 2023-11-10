@@ -1,9 +1,5 @@
 package server;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 import java.net.SocketAddress;
 
@@ -43,8 +39,7 @@ public class ClientSocket {
     }
 
     public boolean sendMessage(String message) {
-        exit.println();
+        exit.println(message);
         return !exit.checkError();
     }
-
 }
