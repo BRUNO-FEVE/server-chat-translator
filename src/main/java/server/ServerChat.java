@@ -1,10 +1,12 @@
 package server;
 
+import com.mysql.cj.jdbc.JdbcConnection;
+import infra.JDBC;
+
 import java.io.IOException;
-import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.ServerSocket;
-import java.util.Enumeration;
+import java.sql.Connection;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -15,6 +17,11 @@ public class ServerChat {
 
     private ServerSocket serverSocket;
     private final List<ClientSocket> clients = new LinkedList<>();
+    private Connection databaseConnection;
+
+    public ServerChat(Connection connection) {
+        this.databaseConnection = connection;
+    }
 
     public void start() throws IOException {
         InetAddress host = InetAddress.getLocalHost();
@@ -39,8 +46,18 @@ public class ServerChat {
         try {
             while ((message = clientSocket.getMessage()) != null ) {
                 if ("stop".equalsIgnoreCase(message)) return;
-                System.out.println(clientSocket.getRemoteSocketAddress() + ": " + message );
-                sendMessageToAll(clientSocket, message);
+
+                String[] messages = message.split(";");
+                if (messages[0].equalsIgnoreCase("Register")) {
+                    registerUser(message);
+                } if (messages[0].equalsIgnoreCase("Login")) {
+                    String loginResponse = loginUser(message);
+                    System.out.println(loginResponse);
+                    sendMessageToAll(clientSocket, "LoginResponse;" + loginResponse);
+                } else {
+                    System.out.println(clientSocket.getRemoteSocketAddress() + ": " + message );
+                    sendMessageToAll(clientSocket, message);
+                }
             }
         } finally {
              clientSocket.close();
@@ -56,6 +73,26 @@ public class ServerChat {
                     iterator.remove();
             }
         }
+    }
+
+    public void registerUser(String message) {
+        String[] userData = message.split(";");
+
+        JDBC databaseConnector = new JDBC(userData[1], userData[2], userData[3], userData[4], userData[5]);
+        databaseConnector.createUser(this.databaseConnection);
+    }
+
+    public String loginUser(String message) {
+        System.out.println("Usuario Logado:");
+        String[] userData = message.split(";");
+
+        JDBC databaseConnector = new JDBC(userData[1], userData[2]);
+        boolean response = databaseConnector.login(this.databaseConnection);
+
+        if (response) {
+            return databaseConnector.getUserData();
+        }
+        return "Failed";
     }
 
 }
