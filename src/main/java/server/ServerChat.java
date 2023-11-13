@@ -48,12 +48,12 @@ public class ServerChat {
                 if ("stop".equalsIgnoreCase(message)) return;
 
                 String[] messages = message.split(";");
-                if (messages[0].equalsIgnoreCase("Register")) {
+                if (messages[0].equalsIgnoreCase("Register") && messages.length > 3 ) {
                     registerUser(message);
-                } if (messages[0].equalsIgnoreCase("Login")) {
+                } if (messages[0].equalsIgnoreCase("Login") && messages.length < 4) {
                     String loginResponse = loginUser(message);
                     System.out.println(loginResponse);
-                    sendMessageToAll(clientSocket, "LoginResponse;" + loginResponse);
+                    clientSocket.sendMessage("Response;" + loginResponse);
                 } else {
                     System.out.println(clientSocket.getRemoteSocketAddress() + ": " + message );
                     sendMessageToAll(clientSocket, message);
@@ -83,7 +83,7 @@ public class ServerChat {
     }
 
     public String loginUser(String message) {
-        System.out.println("Usuario Logado:");
+        System.out.print("Usuario Logado:");
         String[] userData = message.split(";");
 
         JDBC databaseConnector = new JDBC(userData[1], userData[2]);

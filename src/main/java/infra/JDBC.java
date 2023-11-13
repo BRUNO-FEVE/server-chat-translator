@@ -33,7 +33,7 @@ public class JDBC {
         String useDataBase = "USE `chat-translator-db`";
         String createTable = "CREATE TABLE IF NOT EXISTS users ("
                 + "name VARCHAR(30), "
-                + "email VARCHAR(30), "
+                + "email VARCHAR(30) UNIQUE, "
                 + "password VARCHAR(30), "
                 + "phone VARCHAR(14), "
                 + "language VARCHAR(20)"
