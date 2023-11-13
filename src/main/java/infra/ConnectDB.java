@@ -16,9 +16,9 @@ public class ConnectDB {
     public Connection connect() throws SQLException {
         String server = "localhost";
         String port = "3306";
-        String database = "hours";
-        String username = "root";
-        String password = "senha123";
+        String database = "chat-translator-db";
+        String username = "main";
+        String password = "root";
         return DriverManager.getConnection("jdbc:mysql://"+server+":"+port+"/"+database+"?user="+username+"&password="+password);
     }
 }

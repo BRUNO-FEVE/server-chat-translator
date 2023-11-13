@@ -8,4 +8,4 @@ services:
       MYSQL_PASSWORD: root
       MYSQL_ROOT_PASSWORD: root
     ports:
-      - "3305:3305"
+      - "3306:3306"

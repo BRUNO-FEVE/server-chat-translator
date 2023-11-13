@@ -6,9 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="351599e0-7d1e-413f-bb00-3823d4839391" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/infra/ConnectDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/infra/ConnectDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/infra/JDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/infra/JDBC.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/ClientSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ClientSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/ServerChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ServerChat.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +50,7 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2908046&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsDialog.application.dockerConsole&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -58,6 +59,15 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+      <module name="ChatServer" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -72,6 +82,10 @@
       <workItem from="1699560956317" duration="6971000" />
       <workItem from="1699645793338" duration="4223000" />
       <workItem from="1699650037697" duration="2707000" />
+      <workItem from="1699656672990" duration="7221000" />
+      <workItem from="1699810669458" duration="32000" />
+      <workItem from="1699810707602" duration="1347000" />
+      <workItem from="1699818047655" duration="8775000" />
     </task>
     <servers />
   </component>
