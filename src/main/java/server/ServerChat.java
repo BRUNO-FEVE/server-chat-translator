@@ -3,6 +3,7 @@ package server;
 import com.mysql.cj.jdbc.JdbcConnection;
 import infra.JDBC;
 
+import javax.xml.namespace.QName;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.ServerSocket;
@@ -52,8 +53,10 @@ public class ServerChat {
                     registerUser(message);
                 } if (messages[0].equalsIgnoreCase("Login") && messages.length < 4) {
                     String loginResponse = loginUser(message);
-                    System.out.println(loginResponse);
                     clientSocket.sendMessage("Response;" + loginResponse);
+
+                    String[] loginResponseSplit = loginResponse.split(";");
+                    clientSocket.userName =  loginResponseSplit[0];
                 } else {
                     System.out.println(clientSocket.getRemoteSocketAddress() + ": " + message );
                     sendMessageToAll(clientSocket, message);
@@ -69,7 +72,7 @@ public class ServerChat {
         while (iterator.hasNext()) {
             ClientSocket clientSocket = iterator.next();
             if (!owner.equals(clientSocket)) {
-                if (!clientSocket.sendMessage("Client " + owner.getRemoteSocketAddress() + ": " + message))
+                if (!clientSocket.sendMessage(owner.userName + ":" + message)) // Envia
                     iterator.remove();
             }
         }

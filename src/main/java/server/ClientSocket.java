@@ -8,6 +8,8 @@ public class ClientSocket {
     private final BufferedReader entry;
     private final PrintWriter exit;
 
+    public String userName;
+
     public ClientSocket(final Socket socket) throws IOException {
         this.socket = socket;
         System.out.println("Connected to: " + this.socket.getRemoteSocketAddress());
